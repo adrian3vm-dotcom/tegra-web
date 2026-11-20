@@ -1,0 +1,196 @@
+.encabezado{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+    padding: 10px 0;
+
+    background: transparent;
+
+    transition:
+        background-color .5s cubic-bezier(.22,1,.36,1),
+        backdrop-filter .5s cubic-bezier(.22,1,.36,1),
+        padding .5s cubic-bezier(.22,1,.36,1);
+}
+
+.encabezado__contenedor{
+    width:100%;
+
+    padding:0 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.encabezado__logo{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.encabezado__logo img{
+    height: 55px;
+    width: auto;
+    display: block;
+
+    transition:
+        opacity .45s cubic-bezier(.22,1,.36,1),
+        transform .45s cubic-bezier(.22,1,.36,1);
+}
+
+.encabezado__menu{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.encabezado__menu a{
+    font-size: .8rem;
+    letter-spacing: .08rem;
+    text-transform: uppercase;
+
+    color: #111;
+
+    transition:
+        color .45s cubic-bezier(.22,1,.36,1),
+        opacity .45s cubic-bezier(.22,1,.36,1);
+}
+
+.encabezado__hamburguesa{
+    display: none;
+
+    background: none;
+    border: none;
+
+    font-size: 2rem;
+    line-height: 1;
+
+    color: #111;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+/* =========================================
+   HEADER BLANCO
+========================================= */
+
+.encabezado--blanco{
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.18),
+        rgba(0,0,0,0)
+    );
+}
+
+.encabezado--blanco .encabezado__menu a{
+    color: #fff;
+}
+
+.encabezado--blanco .encabezado__hamburguesa{
+    color: #fff;
+}
+
+.encabezado--blanco .encabezado__logo img{
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   TABLET Y SURFACE
+========================================= */
+
+@media (max-width:1200px){
+
+    .encabezado{
+        padding: 15px 0;
+    }
+
+    .encabezado__contenedor{
+        padding: 0 24px;
+    }
+
+    .encabezado__logo img{
+        height: 48px;
+    }
+
+    .encabezado__hamburguesa{
+        display: block;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .encabezado__menu{
+        position: fixed;
+
+        top: 0;
+        right: -100vw;
+
+        width: 100vw;
+        height: 100dvh;
+
+        background: #F5F2EE;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 3rem;
+
+        transition: right .4s ease;
+
+        z-index: 1001;
+    }
+
+    .encabezado__menu.activo{
+        right: 0;
+    }
+
+    .encabezado__menu a{
+        font-size: 1rem;
+        letter-spacing: .15rem;
+        color: #111;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:768px){
+
+    .encabezado__contenedor{
+        padding: 0 20px;
+    }
+
+    .encabezado__logo img{
+        height: 42px;
+    }
+
+    .encabezado__hamburguesa{
+        font-size: 1.8rem;
+    }
+
+    .encabezado__menu a{
+        font-size: .95rem;
+    }
+}
+
+/* =========================================
+   EXTRA PEQUEÑOS
+========================================= */
+
+@media (max-width:480px){
+
+    .encabezado__contenedor{
+        padding: 0 16px;
+    }
+
+    .encabezado__logo img{
+        height: 38px;
+    }
+}

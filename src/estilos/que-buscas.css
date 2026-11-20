@@ -1,0 +1,308 @@
+.que-buscas{
+    position: relative;
+
+    padding: 120px 0;
+
+    display: flex;
+    align-items: center;
+
+    overflow: visible;
+}
+
+.que-buscas__fondo{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+.que-buscas__overlay{
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255,255,255,.12);
+
+    z-index: 1;
+}
+
+.que-buscas__contenedor{
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 0 6rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8rem;
+
+    align-items: start;
+}
+
+.que-buscas__izquierda h2{
+    margin: 0;
+
+    font-size: clamp(4rem, 6vw, 7rem);
+    font-weight: 300;
+    line-height: .95;
+
+    color: #111;
+}
+
+.que-buscas__izquierda p{
+    margin-top: 2rem;
+
+    max-width: 360px;
+
+    color: #444;
+    line-height: 1.9;
+}
+
+.que-buscas__formulario{
+    display: flex;
+    flex-direction: column;
+
+    gap: 3rem;
+
+    padding-bottom: 3rem;
+}
+
+/* =========================================
+   CAMPOS
+========================================= */
+
+.dropdown,
+.campo{
+    position: relative;
+}
+
+.dropdown label,
+.campo label{
+    display: block;
+
+    margin-bottom: 1rem;
+
+    font-size: .8rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: #555;
+}
+
+/* =========================================
+   HEADER DROPDOWN
+========================================= */
+
+.dropdown__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 1rem;
+
+    border-bottom: 1px solid rgba(0,0,0,.12);
+
+    cursor: pointer;
+
+    color: #111;
+    font-size: 1rem;
+
+    transition: .3s ease;
+}
+
+.dropdown__header:hover{
+    border-bottom-color: #C3A482;
+}
+
+.dropdown__header span{
+    font-size: 1.3rem;
+    font-weight: 300;
+
+    color: #C3A482;
+
+    transition: .35s ease;
+}
+
+.dropdown.activo .dropdown__header span{
+    transform: rotate(45deg);
+}
+
+/* =========================================
+   MENÚ
+========================================= */
+
+.dropdown__menu{
+    position: absolute;
+
+    top: calc(100% + 12px);
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(255,255,255,.65);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.08);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s ease;
+
+    z-index: 999;
+
+    overflow: hidden;
+}
+
+.dropdown.activo .dropdown__menu{
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+/* =========================================
+   OPCIONES
+========================================= */
+
+.dropdown__item{
+    padding: 1rem 1.4rem;
+
+    color: #333;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.dropdown__item:hover{
+    background: rgba(195,164,130,.15);
+
+    color: #111;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.campo input,
+.campo textarea{
+    width: 100%;
+
+    padding: 0 0 1rem 0;
+
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+
+    background: transparent;
+
+    color: #111;
+    font-size: 1rem;
+
+    outline: none;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder{
+    color: #777;
+}
+
+.campo textarea{
+    resize: none;
+    min-height: 120px;
+}
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.que-buscas__submit{
+    width: fit-content;
+
+    margin-top: 2rem;
+
+    padding: 1rem 2.5rem;
+
+    border: none;
+
+    background: #111;
+    color: #fff;
+
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: .35s ease;
+}
+
+.que-buscas__submit:hover{
+    background: #C3A482;
+    color: #111;
+
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width:1100px){
+
+    .que-buscas__contenedor{
+        grid-template-columns: 1fr;
+
+        gap: 4rem;
+
+        padding: 0 3rem;
+    }
+
+    .que-buscas{
+        padding: 100px 0;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:768px){
+
+    .que-buscas{
+        padding: 80px 0;
+    }
+
+    .que-buscas__contenedor{
+        padding: 0 2rem;
+    }
+
+    .que-buscas__izquierda h2{
+        font-size: 3rem;
+    }
+
+    .que-buscas__formulario{
+        gap: 2.5rem;
+    }
+}

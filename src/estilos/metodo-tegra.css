@@ -1,0 +1,145 @@
+.metodo-tegra{
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    background-image:url('../assets/metodo-tegra/metodo.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    overflow:hidden;
+}
+
+.metodo-tegra::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+}
+
+.metodo-tegra__contenedor{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:1400px;
+
+    margin:0 auto;
+    padding:8rem 5rem;
+
+    color:#fff;
+
+}
+
+.metodo-tegra__tag{
+    display:block;
+
+    margin-bottom:1rem;
+
+    font-size:.8rem;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+
+    color:#c3a482;
+}
+
+.metodo-tegra h2{
+    margin:0;
+
+    max-width:900px;
+
+    font-size:clamp(3rem,4vw,5rem);
+    font-weight:400;
+    line-height:1.05;
+}
+
+.metodo-tegra__izquierda > p{
+    margin-top:2rem;
+
+    max-width:650px;
+
+    font-size:1.6rem;
+    line-height:1.;
+
+    color:rgba(255,255,255,.85);
+}
+
+.metodo-tegra__pasos{
+    margin-top:4rem;
+
+    max-width:1100px;
+
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+}
+
+.metodo-tegra__paso{
+    display:flex;
+    align-items:center;
+
+    gap:1.5rem;
+
+    padding:.7rem 0;
+
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+.metodo-tegra__paso span{
+    display:block;
+
+    font-size:3rem;
+    font-weight:300;
+
+    color:#c3a482;
+}
+
+.metodo-tegra__paso p{
+    margin:0;
+
+    font-size:1rem;
+    line-height:1.6;
+
+    color:#fff;
+}
+
+@media (max-width:1200px){
+
+    .metodo-tegra__contenedor{
+        padding:0 3rem;
+    }
+
+    .metodo-tegra h2{
+        font-size:4rem;
+    }
+}
+
+@media (max-width:768px){
+
+    .metodo-tegra{
+        background-attachment:scroll;
+    }
+
+    .metodo-tegra__contenedor{
+        padding:0 2rem;
+    }
+
+    .metodo-tegra h2{
+        font-size:3rem;
+    }
+
+    .metodo-tegra__izquierda > p{
+        font-size:1rem;
+    }
+
+    .metodo-tegra__paso span{
+        font-size:1.5rem;
+    }
+}

@@ -1,0 +1,92 @@
+.pie-pagina{
+    background:#f8f6f3;
+
+    padding:8rem 5rem 2rem;
+
+    border-top:1px solid rgba(0,0,0,.08);
+}
+
+.pie-pagina__contenedor{
+    max-width:1400px;
+
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:6rem;
+}
+
+.pie-pagina__marca img{
+    height:55px;
+    width:auto;
+
+    display:block;
+}
+
+.pie-pagina__marca p{
+    max-width:320px;
+
+    margin-top:2rem;
+
+    color:#666;
+
+    line-height:1.9;
+}
+
+.pie-pagina__enlaces,
+.pie-pagina__info{
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+}
+
+.pie-pagina__enlaces a,
+.pie-pagina__info a,
+.pie-pagina__info span{
+    color:#666;
+
+    text-decoration:none;
+
+    transition:.3s ease;
+}
+
+.pie-pagina__enlaces a:hover,
+.pie-pagina__info a:hover{
+    color:#111;
+}
+
+.pie-pagina__bottom{
+    max-width:1400px;
+
+    margin:5rem auto 0;
+
+    padding-top:2rem;
+
+    border-top:1px solid #c3a482;
+
+    color:#888;
+
+    font-size:.85rem;
+}
+
+@media (max-width:992px){
+
+    .pie-pagina{
+        padding:6rem 3rem 2rem;
+    }
+
+    .pie-pagina__contenedor{
+        grid-template-columns:1fr;
+        gap:3rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .pie-pagina{
+        padding:5rem 2rem 2rem;
+    }
+
+}
