@@ -1,15 +1,25 @@
-.que-buscas{
+
+/* =========================================
+   CONTACTO TEGRA
+========================================= */
+
+.que-buscas {
     position: relative;
 
-    padding: 120px 0;
+    min-height: 880px;
+    padding: 140px 0 125px;
 
     display: flex;
     align-items: center;
 
-    overflow: visible;
+    overflow: hidden;
 }
 
-.que-buscas__fondo{
+/* =========================================
+   FONDO
+========================================= */
+
+.que-buscas__fondo {
     position: absolute;
     inset: 0;
 
@@ -17,20 +27,25 @@
     height: 100%;
 
     object-fit: cover;
+    object-position: center center;
 
     z-index: 0;
 }
 
-.que-buscas__overlay{
+.que-buscas__overlay {
     position: absolute;
     inset: 0;
 
-    background: rgba(255,255,255,.12);
+    background: rgba(255, 255, 255, .15);
 
     z-index: 1;
 }
 
-.que-buscas__contenedor{
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.que-buscas__contenedor {
     position: relative;
     z-index: 2;
 
@@ -41,140 +56,160 @@
     padding: 0 6rem;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
-    gap: 8rem;
-
+    gap: 7rem;
     align-items: start;
 }
 
-.que-buscas__izquierda h2{
+/* =========================================
+   COLUMNA IZQUIERDA
+========================================= */
+
+.que-buscas__izquierda h2 {
     margin: 0;
 
-    font-size: clamp(4rem, 6vw, 7rem);
+    font-size: clamp(2.8rem, 4vw, 4.5rem);
     font-weight: 300;
-    line-height: .95;
+    line-height: 1.1;
 
     color: #111;
 }
 
-.que-buscas__izquierda p{
-    margin-top: 2rem;
+.que-buscas__izquierda p {
+    margin-top: 1.7rem;
 
-    max-width: 360px;
+    max-width: 380px;
+
+    font-size: .95rem;
+    font-weight: 400;
+    line-height: 1.8;
 
     color: #444;
-    line-height: 1.9;
-}
-
-.que-buscas__formulario{
-    display: flex;
-    flex-direction: column;
-
-    gap: 3rem;
-
-    padding-bottom: 3rem;
 }
 
 /* =========================================
-   CAMPOS
+   FORMULARIO
 ========================================= */
 
-.dropdown,
-.campo{
-    position: relative;
+.que-buscas__formulario {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+
+    min-width: 0;
 }
 
+.dropdown,
+.campo {
+    position: relative;
+    min-width: 0;
+}
+
+/* =========================================
+   ETIQUETAS
+========================================= */
+
 .dropdown label,
-.campo label{
+.campo label {
     display: block;
 
-    margin-bottom: 1rem;
+    margin-bottom: .8rem;
 
-    font-size: .8rem;
-    letter-spacing: .12em;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .1em;
     text-transform: uppercase;
 
     color: #555;
 }
 
 /* =========================================
-   HEADER DROPDOWN
+   DROPDOWN
 ========================================= */
 
-.dropdown__header{
+.dropdown__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding-bottom: 1rem;
+    width: 100%;
 
-    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: .4rem 0 1rem;
+
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 0;
+
+    background: transparent;
 
     cursor: pointer;
 
     color: #111;
+
+    font-family: inherit;
     font-size: 1rem;
+    font-weight: 400;
+    text-align: left;
 
-    transition: .3s ease;
+    transition: border-color .3s ease;
 }
 
-.dropdown__header:hover{
-    border-bottom-color: #C3A482;
+.dropdown__header:hover {
+    border-bottom-color: #8b6f4e;
 }
 
-.dropdown__header span{
+.dropdown__header span {
     font-size: 1.3rem;
     font-weight: 300;
 
-    color: #C3A482;
+    color: #8b6f4e;
 
-    transition: .35s ease;
+    transition: transform .3s ease;
 }
 
-.dropdown.activo .dropdown__header span{
+.dropdown.activo .dropdown__header span {
     transform: rotate(45deg);
 }
 
 /* =========================================
-   MENÚ
+   MENU DESPLEGABLE
 ========================================= */
 
-.dropdown__menu{
+.dropdown__menu {
     position: absolute;
 
-    top: calc(100% + 12px);
+    top: calc(100% + 10px);
     left: 0;
 
     width: 100%;
 
-    background: rgba(255,255,255,.65);
+    background: rgba(255, 255, 255, .85);
 
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
 
-    border: 1px solid rgba(255,255,255,.45);
-    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 14px;
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.08);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .09);
 
     opacity: 0;
     visibility: hidden;
 
-    transform: translateY(10px);
+    transform: translateY(8px);
 
     transition:
-        opacity .35s ease,
-        transform .35s ease,
-        visibility .35s ease;
+        opacity .3s ease,
+        transform .3s ease,
+        visibility .3s ease;
 
     z-index: 999;
-
     overflow: hidden;
 }
 
-.dropdown.activo .dropdown__menu{
+.dropdown.activo .dropdown__menu {
     opacity: 1;
     visibility: visible;
 
@@ -185,8 +220,20 @@
    OPCIONES
 ========================================= */
 
-.dropdown__item{
-    padding: 1rem 1.4rem;
+.dropdown__item {
+    display: block;
+
+    width: 100%;
+
+    padding: .9rem 1.3rem;
+
+    border: none;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 400;
+    text-align: left;
 
     color: #333;
 
@@ -197,90 +244,153 @@
         color .25s ease;
 }
 
-.dropdown__item:hover{
-    background: rgba(195,164,130,.15);
-
+.dropdown__item:hover,
+.dropdown__item:focus-visible {
+    background: rgba(195, 164, 130, .18);
     color: #111;
 }
 
 /* =========================================
-   INPUTS
+   CAMPOS DE TEXTO
 ========================================= */
 
 .campo input,
-.campo textarea{
+.campo textarea {
+    display: block;
+
     width: 100%;
 
-    padding: 0 0 1rem 0;
+    padding: .4rem 0 1rem;
 
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 0;
 
     background: transparent;
 
+    font-family: inherit;
+    font-size: .95rem;
+    font-weight: 400;
+    line-height: 1.6;
+
     color: #111;
-    font-size: 1rem;
 
     outline: none;
+
+    transition: border-color .3s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-bottom-color: #8b6f4e;
 }
 
 .campo input::placeholder,
-.campo textarea::placeholder{
+.campo textarea::placeholder {
     color: #777;
-}
-
-.campo textarea{
-    resize: none;
-    min-height: 120px;
+    opacity: 1;
 }
 
 /* =========================================
-   BOTÓN
+   DESCRIPCION
 ========================================= */
 
-.que-buscas__submit{
+.campo textarea {
+    resize: vertical;
+
+    min-height: 80px;
+    max-height: 180px;
+}
+
+/* =========================================
+   NOMBRE Y CONTACTO
+========================================= */
+
+.que-buscas__datos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1.8rem;
+}
+
+/* =========================================
+   BOTON
+========================================= */
+
+.que-buscas__submit {
     width: fit-content;
 
-    margin-top: 2rem;
-
-    padding: 1rem 2.5rem;
+    margin-top: .5rem;
+    padding: 1rem 2.4rem;
 
     border: none;
 
     background: #111;
     color: #fff;
 
-    letter-spacing: .15em;
+    font-family: inherit;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .12em;
     text-transform: uppercase;
 
     cursor: pointer;
 
-    transition: .35s ease;
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
 }
 
-.que-buscas__submit:hover{
-    background: #C3A482;
-    color: #111;
+.que-buscas__submit:hover {
+    background: #8b6f4e;
+    color: #fff;
 
     transform: translateY(-2px);
+}
+
+.que-buscas__submit:focus-visible {
+    outline: 2px solid #8b6f4e;
+    outline-offset: 4px;
+}
+
+/* =========================================
+   ESTADO DEL FORMULARIO
+========================================= */
+
+.que-buscas__estado {
+    margin: 0;
+
+    font-size: .85rem;
+    line-height: 1.5;
+
+    color: #555;
+}
+
+.que-buscas__estado:empty {
+    display: none;
 }
 
 /* =========================================
    TABLET
 ========================================= */
 
-@media (max-width:1100px){
+@media (max-width: 1100px) {
 
-    .que-buscas__contenedor{
+    .que-buscas {
+        min-height: 800px;
+        padding: 110px 0;
+    }
+
+    .que-buscas__contenedor {
         grid-template-columns: 1fr;
 
-        gap: 4rem;
-
+        gap: 3rem;
         padding: 0 3rem;
     }
 
-    .que-buscas{
-        padding: 100px 0;
+    .que-buscas__formulario {
+        max-width: 650px;
     }
 }
 
@@ -288,21 +398,89 @@
    MOBILE
 ========================================= */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-    .que-buscas{
-        padding: 80px 0;
+    .que-buscas {
+        min-height: auto;
+        padding: 100px 0;
     }
 
-    .que-buscas__contenedor{
+    .que-buscas__contenedor {
         padding: 0 2rem;
-    }
-
-    .que-buscas__izquierda h2{
-        font-size: 3rem;
-    }
-
-    .que-buscas__formulario{
         gap: 2.5rem;
+    }
+
+    .que-buscas__izquierda h2 {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+
+    .que-buscas__izquierda p {
+        margin-top: 1.2rem;
+
+        font-size: .9rem;
+        line-height: 1.7;
+    }
+
+    .que-buscas__formulario {
+        gap: 1.7rem;
+    }
+
+    .que-buscas__datos {
+        grid-template-columns: 1fr;
+        gap: 1.7rem;
+    }
+
+    .campo input,
+    .campo textarea,
+    .dropdown__header {
+        font-size: 1rem;
+    }
+
+    .que-buscas__submit {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .que-buscas {
+        padding: 85px 0;
+    }
+
+    .que-buscas__contenedor {
+        padding: 0 1.5rem;
+    }
+
+    .que-buscas__izquierda h2 {
+        font-size: 2.3rem;
+    }
+
+    .que-buscas__formulario {
+        gap: 1.5rem;
+    }
+
+    .que-buscas__submit {
+        padding: 1rem 1.4rem;
+    }
+}
+
+/* =========================================
+   MOVIMIENTO REDUCIDO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .dropdown__header,
+    .dropdown__header span,
+    .dropdown__menu,
+    .dropdown__item,
+    .campo input,
+    .campo textarea,
+    .que-buscas__submit {
+        transition: none;
     }
 }

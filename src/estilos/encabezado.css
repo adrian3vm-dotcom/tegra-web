@@ -1,4 +1,9 @@
-.encabezado{
+
+/* =========================================
+   ENCABEZADO TEGRA
+========================================= */
+
+.encabezado {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,23 +20,32 @@
         padding .5s cubic-bezier(.22,1,.36,1);
 }
 
-.encabezado__contenedor{
-    width:100%;
+/* =========================================
+   CONTENEDOR
+========================================= */
 
-    padding:0 40px;
+.encabezado__contenedor {
+    width: 100%;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    padding: 0 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.encabezado__logo{
+/* =========================================
+   LOGOTIPO
+========================================= */
+
+.encabezado__logo {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    text-decoration: none;
 }
 
-.encabezado__logo img{
+.encabezado__logo img {
     height: 55px;
     width: auto;
     display: block;
@@ -41,30 +55,49 @@
         transform .45s cubic-bezier(.22,1,.36,1);
 }
 
-.encabezado__menu{
+.encabezado__logo:hover img {
+    opacity: .8;
+}
+
+/* =========================================
+   NAVEGACION
+========================================= */
+
+.encabezado__menu {
     display: flex;
     align-items: center;
     gap: 3rem;
 }
 
-.encabezado__menu a{
+.encabezado__menu a {
     font-size: .8rem;
+    font-weight: 400;
     letter-spacing: .08rem;
     text-transform: uppercase;
 
     color: #111;
+    text-decoration: none;
 
     transition:
         color .45s cubic-bezier(.22,1,.36,1),
         opacity .45s cubic-bezier(.22,1,.36,1);
 }
 
-.encabezado__hamburguesa{
+.encabezado__menu a:hover {
+    opacity: .6;
+}
+
+/* =========================================
+   BOTON HAMBURGUESA
+========================================= */
+
+.encabezado__hamburguesa {
     display: none;
 
     background: none;
     border: none;
 
+    font-family: inherit;
     font-size: 2rem;
     line-height: 1;
 
@@ -76,10 +109,10 @@
 }
 
 /* =========================================
-   HEADER BLANCO
+   HEADER SOBRE FONDO OSCURO
 ========================================= */
 
-.encabezado--blanco{
+.encabezado--blanco {
     background: linear-gradient(
         to bottom,
         rgba(0,0,0,.18),
@@ -87,15 +120,15 @@
     );
 }
 
-.encabezado--blanco .encabezado__menu a{
+.encabezado--blanco .encabezado__menu a {
     color: #fff;
 }
 
-.encabezado--blanco .encabezado__hamburguesa{
+.encabezado--blanco .encabezado__hamburguesa {
     color: #fff;
 }
 
-.encabezado--blanco .encabezado__logo img{
+.encabezado--blanco .encabezado__logo img {
     transform: translateY(-1px);
 }
 
@@ -103,27 +136,27 @@
    TABLET Y SURFACE
 ========================================= */
 
-@media (max-width:1200px){
+@media (max-width: 1200px) {
 
-    .encabezado{
+    .encabezado {
         padding: 15px 0;
     }
 
-    .encabezado__contenedor{
+    .encabezado__contenedor {
         padding: 0 24px;
     }
 
-    .encabezado__logo img{
+    .encabezado__logo img {
         height: 48px;
     }
 
-    .encabezado__hamburguesa{
+    .encabezado__hamburguesa {
         display: block;
         position: relative;
         z-index: 1002;
     }
 
-    .encabezado__menu{
+    .encabezado__menu {
         position: fixed;
 
         top: 0;
@@ -146,13 +179,19 @@
         z-index: 1001;
     }
 
-    .encabezado__menu.activo{
+    .encabezado__menu.activo {
         right: 0;
     }
 
-    .encabezado__menu a{
+    .encabezado__menu a,
+    .encabezado--blanco .encabezado__menu a {
         font-size: 1rem;
         letter-spacing: .15rem;
+        color: #111;
+    }
+
+    .encabezado:has(.encabezado__menu.activo)
+    .encabezado__hamburguesa {
         color: #111;
     }
 }
@@ -161,36 +200,51 @@
    MOBILE
 ========================================= */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-    .encabezado__contenedor{
+    .encabezado__contenedor {
         padding: 0 20px;
     }
 
-    .encabezado__logo img{
+    .encabezado__logo img {
         height: 42px;
     }
 
-    .encabezado__hamburguesa{
+    .encabezado__hamburguesa {
         font-size: 1.8rem;
     }
 
-    .encabezado__menu a{
+    .encabezado__menu a,
+    .encabezado--blanco .encabezado__menu a {
         font-size: .95rem;
     }
 }
 
 /* =========================================
-   EXTRA PEQUEÑOS
+   CELULARES PEQUEÑOS
 ========================================= */
 
-@media (max-width:480px){
+@media (max-width: 480px) {
 
-    .encabezado__contenedor{
+    .encabezado__contenedor {
         padding: 0 16px;
     }
 
-    .encabezado__logo img{
+    .encabezado__logo img {
         height: 38px;
+    }
+}
+
+/* =========================================
+   MOVIMIENTO REDUCIDO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .encabezado,
+    .encabezado__logo img,
+    .encabezado__menu,
+    .encabezado__menu a {
+        transition: none;
     }
 }

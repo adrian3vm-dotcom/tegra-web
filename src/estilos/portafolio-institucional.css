@@ -1,0 +1,345 @@
+
+/* =========================================
+   PORTAFOLIO INSTITUCIONAL
+========================================= */
+
+.portafolio-institucional {
+    background: #f8f6f3;
+    padding: 4.5rem 4rem;
+    overflow: hidden;
+}
+
+.portafolio-institucional__contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: center;
+    gap: 5rem;
+}
+
+/* =========================================
+   DOCUMENTO
+========================================= */
+
+.portafolio-institucional__documento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 900px;
+}
+
+.portafolio-institucional__portada {
+    position: relative;
+
+    width: 175px;
+    height: 235px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 1.5rem;
+
+    background: linear-gradient(
+        145deg,
+        #987958,
+        #70553d
+    );
+
+    border: 1px solid rgba(255, 255, 255, .2);
+
+    box-shadow: 15px 18px 35px rgba(0, 0, 0, .18);
+
+    transform: rotate(-5deg);
+    transition: transform .4s ease;
+}
+
+.portafolio-institucional__portada:hover {
+    transform: rotate(0deg) translateY(-5px);
+}
+
+/* =========================================
+   ISOTIPO DE LA PORTADA
+========================================= */
+
+.portafolio-institucional__marca {
+    display: block;
+
+    width: 65px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: left center;
+
+    /* Blanco sobre la portada café */
+    filter: brightness(0) invert(1);
+}
+
+/* =========================================
+   TEXTO DE LA PORTADA
+========================================= */
+
+.portafolio-institucional__portada-texto {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+
+    padding-top: 1rem;
+
+    border-top: 1px solid rgba(255, 255, 255, .6);
+
+    font-size: .65rem;
+    font-weight: 400;
+    letter-spacing: .12em;
+
+    color: #ffffff;
+}
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.portafolio-institucional__contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-width: 0;
+}
+
+/* =========================================
+   TITULO NEGRO
+========================================= */
+
+.portafolio-institucional__titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: .15rem;
+
+    margin: 0;
+
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: #111111;
+}
+
+.portafolio-institucional__titulo-linea {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 16px;
+}
+
+.portafolio-institucional__titulo-segunda {
+    display: block;
+}
+
+/* =========================================
+   NOMBRE ORIGINAL TEGRA EN NEGRO
+========================================= */
+
+.portafolio-institucional__nombre {
+    display: block;
+
+    width: 210px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    filter: brightness(0);
+}
+
+/* =========================================
+   DESCRIPCION
+========================================= */
+
+.portafolio-institucional__contenido > p {
+    margin-top: 1.3rem;
+
+    max-width: 430px;
+
+    font-size: .95rem;
+    font-weight: 400;
+    line-height: 1.8;
+
+    color: #555555;
+}
+
+/* =========================================
+   BOTON PARA VER PORTAFOLIO
+========================================= */
+
+.portafolio-institucional__boton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: .85rem;
+
+    margin-top: 2rem;
+    padding: 1rem 1.6rem;
+
+    background: transparent;
+
+    border: 1px solid #8b6f4e;
+    border-radius: 4px;
+
+    color: #111111;
+    text-decoration: none;
+
+    font-size: .85rem;
+    font-weight: 500;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+.portafolio-institucional__boton svg {
+    flex-shrink: 0;
+}
+
+.portafolio-institucional__boton:hover {
+    background: #8b6f4e;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+.portafolio-institucional__boton:focus-visible {
+    outline: 2px solid #8b6f4e;
+    outline-offset: 4px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .portafolio-institucional {
+        padding: 4rem 3rem;
+    }
+
+    .portafolio-institucional__contenedor {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 3rem;
+    }
+
+    .portafolio-institucional__nombre {
+        width: 180px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .portafolio-institucional {
+        padding: 3.5rem 2rem;
+    }
+
+    .portafolio-institucional__contenedor {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+
+        text-align: center;
+    }
+
+    .portafolio-institucional__documento {
+        justify-content: center;
+    }
+
+    .portafolio-institucional__portada {
+        width: 125px;
+        height: 170px;
+        padding: 1rem;
+    }
+
+    .portafolio-institucional__marca {
+        width: 48px;
+    }
+
+    .portafolio-institucional__portada-texto {
+        font-size: .5rem;
+    }
+
+    .portafolio-institucional__contenido {
+        align-items: center;
+    }
+
+    .portafolio-institucional__titulo {
+        align-items: center;
+        font-size: 2rem;
+    }
+
+    .portafolio-institucional__titulo-linea {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .portafolio-institucional__nombre {
+        width: 155px;
+    }
+
+    .portafolio-institucional__contenido > p {
+        font-size: .9rem;
+    }
+
+    .portafolio-institucional__boton {
+        margin-top: 1.8rem;
+    }
+}
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .portafolio-institucional {
+        padding: 3rem 1.5rem;
+    }
+
+    .portafolio-institucional__titulo {
+        font-size: 1.8rem;
+    }
+
+    .portafolio-institucional__titulo-linea {
+        gap: 10px;
+    }
+
+    .portafolio-institucional__nombre {
+        width: 140px;
+    }
+
+    .portafolio-institucional__boton {
+        font-size: .8rem;
+        padding: .9rem 1.4rem;
+    }
+}
+
+/* =========================================
+   MOVIMIENTO REDUCIDO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .portafolio-institucional__portada,
+    .portafolio-institucional__boton {
+        transition: none;
+    }
+}

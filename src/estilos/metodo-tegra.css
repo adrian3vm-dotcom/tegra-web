@@ -1,145 +1,259 @@
-.metodo-tegra{
-    position:relative;
 
-    min-height:100vh;
+/* ==========================
+   SECCION METODO TEGRA
+========================== */
 
-    display:flex;
-    align-items:center;
+.metodo-tegra {
+    position: relative;
 
-    background-image:url('../assets/metodo-tegra/metodo.png');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    min-height: 100vh;
 
-    background-attachment:fixed;
+    display: flex;
+    align-items: center;
 
-    overflow:hidden;
+    background-image: url('../assets/metodo-tegra/metodo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    overflow: hidden;
 }
 
-.metodo-tegra::before{
-    content:"";
+.metodo-tegra::before {
+    content: "";
 
-    position:absolute;
-    inset:0;
+    position: absolute;
+    inset: 0;
 
-    background:rgba(0,0,0,.55);
+    background: rgba(0, 0, 0, .55);
 }
 
-.metodo-tegra__contenedor{
-    position:relative;
-    z-index:2;
+/* ==========================
+   CONTENEDOR
+========================== */
 
-    width:100%;
-    max-width:1400px;
+.metodo-tegra__contenedor {
+    position: relative;
+    z-index: 2;
 
-    margin:0 auto;
-    padding:8rem 5rem;
+    width: 100%;
+    max-width: 1400px;
 
-    color:#fff;
+    margin: 0 auto;
+    padding: 8rem 5rem;
 
+    color: #fff;
 }
 
-.metodo-tegra__tag{
-    display:block;
+/* ==========================
+   TITULO Y LOGOTIPO
+========================== */
 
-    margin-bottom:1rem;
+.metodo-tegra h2 {
+    margin: 0;
 
-    font-size:.8rem;
-    letter-spacing:.25em;
-    text-transform:uppercase;
+    max-width: 900px;
 
-    color:#c3a482;
+    font-size: clamp(2.7rem, 3.6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.05;
 }
 
-.metodo-tegra h2{
-    margin:0;
-
-    max-width:900px;
-
-    font-size:clamp(3rem,4vw,5rem);
-    font-weight:400;
-    line-height:1.05;
+.metodo-tegra__titulo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
-.metodo-tegra__izquierda > p{
-    margin-top:2rem;
-
-    max-width:650px;
-
-    font-size:1.6rem;
-    line-height:1.;
-
-    color:rgba(255,255,255,.85);
+.metodo-tegra__titulo span {
+    white-space: nowrap;
 }
 
-.metodo-tegra__pasos{
-    margin-top:4rem;
+.metodo-tegra__nombre {
+    display: block;
 
-    max-width:1100px;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
 
-    display:flex;
-    flex-direction:column;
-    gap:1.5rem;
+    object-fit: contain;
 }
 
-.metodo-tegra__paso{
-    display:flex;
-    align-items:center;
+/* ==========================
+   FRASE SECUNDARIA
+========================== */
 
-    gap:1.5rem;
+.metodo-tegra__izquierda > p {
+    margin-top: 2rem;
 
-    padding:.7rem 0;
+    max-width: 650px;
 
-    border-bottom:1px solid rgba(255,255,255,.12);
-}
-.metodo-tegra__paso span{
-    display:block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
 
-    font-size:3rem;
-    font-weight:300;
-
-    color:#c3a482;
+    color: rgba(255, 255, 255, .85);
 }
 
-.metodo-tegra__paso p{
-    margin:0;
+/* ==========================
+   PASOS DEL METODO
+========================== */
 
-    font-size:1rem;
-    line-height:1.6;
+.metodo-tegra__pasos {
+    margin-top: 4rem;
 
-    color:#fff;
+    max-width: 1100px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-@media (max-width:1200px){
+/* ==========================
+   FILAS Y ALINEACION
+========================== */
 
-    .metodo-tegra__contenedor{
-        padding:0 3rem;
+.metodo-tegra__paso {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-items: center;
+
+    column-gap: 1.5rem;
+
+    padding: .7rem 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+/* ==========================
+   LETRAS T E G R A
+========================== */
+
+.metodo-tegra__paso span {
+    display: block;
+
+    width: 48px;
+    min-width: 0;
+
+    font-size: 3.2rem;
+    font-weight: 300;
+    line-height: 1;
+
+    text-align: center;
+
+    color: #c3a482;
+}
+
+/* ==========================
+   DESCRIPCIONES
+========================== */
+
+.metodo-tegra__paso p {
+    margin: 0;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+
+    color: #fff;
+}
+
+/* ==========================
+   DESKTOP MEDIANO
+========================== */
+
+@media (max-width: 1200px) {
+
+    .metodo-tegra__contenedor {
+        padding: 6rem 3rem;
     }
 
-    .metodo-tegra h2{
-        font-size:4rem;
+    .metodo-tegra h2 {
+        font-size: 3.6rem;
+    }
+
+    .metodo-tegra__nombre {
+        width: 280px;
     }
 }
 
-@media (max-width:768px){
+/* ==========================
+   MOBILE
+========================== */
 
-    .metodo-tegra{
-        background-attachment:scroll;
+@media (max-width: 768px) {
+
+    .metodo-tegra {
+        background-attachment: scroll;
     }
 
-    .metodo-tegra__contenedor{
-        padding:0 2rem;
+    .metodo-tegra__contenedor {
+        padding: 5rem 2rem;
     }
 
-    .metodo-tegra h2{
-        font-size:3rem;
+    .metodo-tegra h2 {
+        font-size: 2.8rem;
     }
 
-    .metodo-tegra__izquierda > p{
-        font-size:1rem;
+    .metodo-tegra__titulo {
+        gap: 12px;
     }
 
-    .metodo-tegra__paso span{
-        font-size:1.5rem;
+    .metodo-tegra__nombre {
+        width: 200px;
+    }
+
+    .metodo-tegra__izquierda > p {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .metodo-tegra__pasos {
+        margin-top: 3rem;
+        gap: 1rem;
+    }
+
+    .metodo-tegra__paso {
+        grid-template-columns: 32px minmax(0, 1fr);
+        column-gap: 1rem;
+    }
+
+    .metodo-tegra__paso span {
+        width: 32px;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .metodo-tegra__paso p {
+        font-size: .9rem;
+    }
+}
+
+/* ==========================
+   CELULARES PEQUEÑOS
+========================== */
+
+@media (max-width: 480px) {
+
+    .metodo-tegra__contenedor {
+        padding: 4rem 1.5rem;
+    }
+
+    .metodo-tegra h2 {
+        font-size: 2.3rem;
+    }
+
+    .metodo-tegra__titulo {
+        gap: 10px;
+    }
+
+    .metodo-tegra__nombre {
+        width: 170px;
+    }
+
+    .metodo-tegra__paso span {
+        font-size: 1.8rem;
     }
 }

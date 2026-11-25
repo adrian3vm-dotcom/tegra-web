@@ -1,122 +1,224 @@
-.hero{
-    min-height:100vh;
 
-    display:flex;
-    align-items:center;
+/* ==========================
+   HERO PRINCIPAL
+========================== */
 
-    padding:0 4rem;
+.hero {
+    position: relative;
 
-    background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
+    min-height: 100vh;
+    min-height: 100svh;
 
-    background-attachment:fixed;
+    display: flex;
+    align-items: center;
 
-    position:relative;
+    padding: 0 4rem;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.hero__contenido{
-    position:relative;
-    z-index:2;
+/* ==========================
+   CONTENIDO
+========================== */
 
-    max-width:620px;
+.hero__contenido {
+    position: relative;
+    z-index: 2;
 
-    margin-left:15rem;
+    width: 100%;
+    max-width: 680px;
+
+    margin-left: 15rem;
 }
 
-.hero h1{
-    margin:0;
+/* ==========================
+   TITULO
+========================== */
 
-    font-size:clamp(4rem,5vw,6rem);
-    font-weight:400;
-    line-height:1.05;
+.hero h1 {
+    margin: 0;
 
-    color:#111;
+    font-size: clamp(3.2rem, 4vw, 5rem);
+    font-weight: 400;
+    line-height: 1.1;
+
+    color: #111;
+}
+
+/* ==========================
+   LINEA DECORATIVA
+========================== */
+
+.hero__linea {
+    width: 60px;
+    height: 2px;
+
+    margin-top: 2rem;
+
+    background: #8B6F4E;
+}
+
+/* ==========================
+   DESCRIPCION
+========================== */
+
+.hero__descripcion {
+    margin-top: 1.5rem;
+
+    max-width: 490px;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+
+    color: #333;
 }
 
 /* ==========================
    DESKTOP MEDIANO
 ========================== */
 
-@media (max-width:1200px){
+@media (max-width: 1200px) {
 
-    .hero{
-        padding:0 3rem;
-        
+    .hero {
+        padding: 0 3rem;
     }
 
-    .hero__contenido{
-        margin-left:8rem;
+    .hero__contenido {
+        margin-left: 8rem;
+        max-width: 620px;
     }
 
-    .hero h1{
-        font-size:4.5rem;
+    .hero h1 {
+        font-size: clamp(3rem, 4vw, 4.2rem);
     }
-
 }
 
+/* ==========================
+   TABLET Y SURFACE
+========================== */
+
+@media (max-width: 1024px) {
+
+    .hero {
+        padding: 0 2rem;
+
+        background-position: 65% center;
+        background-attachment: scroll;
+    }
+
+    .hero__contenido {
+        margin-left: 0;
+        max-width: 520px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.7rem, 6vw, 3.8rem);
+    }
+
+    .hero__descripcion {
+        max-width: 440px;
+        font-size: .95rem;
+    }
+}
 
 /* ==========================
    MOBILE
 ========================== */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-    .hero{
-        min-height:100vh;
+    .hero {
+        min-height: 100vh;
+        min-height: 100svh;
 
-        padding:0 2rem;
+        padding: 0 1.5rem;
 
-        background-position:80% center !important;
-        background-attachment:scroll;
+        background-position: 76% center;
+        background-attachment: scroll;
     }
 
-    .hero__contenido{
-        margin-left:0;
-        max-width:100%;
+    .hero__contenido {
+        margin-left: 0;
+        max-width: 100%;
+        width: 100%;
 
-        transform:translateY(-160px);
+        transform: translateY(-160px);
     }
 
-    .hero h1{
-        font-size:clamp(2.8rem,11vw,4rem);
-        line-height:1.05;
+    .hero h1 {
+        max-width: 330px;
+
+        font-size: clamp(2rem, 7.8vw, 2.8rem);
+        font-weight: 400;
+        line-height: 1.16;
+        letter-spacing: -0.035em;
     }
 
+    .hero__linea {
+        width: 45px;
+        height: 2px;
+
+        margin-top: 1.5rem;
+    }
+
+    .hero__descripcion {
+        max-width: 265px;
+
+        margin-top: 1.2rem;
+
+        font-size: .82rem;
+        font-weight: 400;
+        line-height: 1.75;
+
+        color: #222;
+    }
 }
 
 /* ==========================
    CELULARES PEQUEÑOS
 ========================== */
 
-@media (max-width:480px){
+@media (max-width: 480px) {
 
-    .hero{
-        padding:0 1.5rem;
+    .hero {
+        padding: 0 1.4rem;
     }
 
-    .hero h1{
-        font-size:2.6rem;
+    .hero__contenido {
+        transform: translateY(-160px);
     }
 
+    .hero h1 {
+        max-width: 320px;
+
+        font-size: clamp(1.9rem, 7.5vw, 2.3rem);
+    }
+
+    .hero__descripcion {
+        max-width: 245px;
+        font-size: .78rem;
+    }
 }
-/* TABLET Y SURFACE */
 
-@media (max-width:1024px){
+/* ==========================
+   CELULARES DE POCA ALTURA
+========================== */
 
-    .hero{
-        padding:0 2rem;
-        background-position:65% center;
-        background-attachment:scroll;
+@media (max-width: 768px) and (max-height: 650px) {
+
+    .hero__contenido {
+        transform: translateY(-80px);
     }
 
-    .hero__contenido{
-        margin-left:0;
-        max-width:450px;
+    .hero h1 {
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
     }
 
-    .hero h1{
-        font-size:clamp(3rem,7vw,4.5rem);
+    .hero__descripcion {
+        font-size: .76rem;
     }
-
 }

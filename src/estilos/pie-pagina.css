@@ -1,92 +1,276 @@
-.pie-pagina{
-    background:#f8f6f3;
 
-    padding:8rem 5rem 2rem;
+/* =========================================
+   FOOTER TEGRA
+========================================= */
 
-    border-top:1px solid rgba(0,0,0,.08);
+.pie-pagina {
+    background: #111111;
+
+    padding: 6rem 5rem 2rem;
+
+    color: #ffffff;
+
+    border-top: none;
 }
 
-.pie-pagina__contenedor{
-    max-width:1400px;
+/* =========================================
+   CONTENEDOR
+========================================= */
 
-    margin:0 auto;
+.pie-pagina__contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
 
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.3fr;
 
-    gap:6rem;
+    gap: 5rem;
+
+    align-items: start;
 }
 
-.pie-pagina__marca img{
-    height:55px;
-    width:auto;
+/* =========================================
+   MARCA
+========================================= */
 
-    display:block;
+.pie-pagina__marca {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.pie-pagina__marca p{
-    max-width:320px;
+/* =========================================
+   LOGOTIPO CON ENLACE AL HERO
+========================================= */
 
-    margin-top:2rem;
+.pie-pagina__logo-enlace {
+    display: inline-block;
 
-    color:#666;
-
-    line-height:1.9;
+    text-decoration: none;
+    cursor: pointer;
 }
+
+.pie-pagina__logo-enlace img {
+    display: block;
+
+    height: 55px;
+    width: auto;
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: left center;
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+.pie-pagina__logo-enlace:hover img {
+    opacity: .75;
+    transform: translateY(-2px);
+}
+
+.pie-pagina__logo-enlace:focus-visible {
+    outline: 2px solid #c3a482;
+    outline-offset: 6px;
+}
+
+/* =========================================
+   TEXTO DE MARCA
+========================================= */
+
+.pie-pagina__marca p {
+    max-width: 320px;
+
+    margin-top: 1.8rem;
+
+    color: #bdbdbd;
+
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.9;
+}
+
+/* =========================================
+   ENLACES E INFORMACION
+========================================= */
 
 .pie-pagina__enlaces,
-.pie-pagina__info{
-    display:flex;
-    flex-direction:column;
-    gap:1.25rem;
+.pie-pagina__info {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 1.25rem;
 }
 
 .pie-pagina__enlaces a,
 .pie-pagina__info a,
-.pie-pagina__info span{
-    color:#666;
+.pie-pagina__info span {
+    color: #ffffff;
 
-    text-decoration:none;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.6;
 
-    transition:.3s ease;
+    text-decoration: none;
+
+    transition: color .3s ease;
 }
 
 .pie-pagina__enlaces a:hover,
-.pie-pagina__info a:hover{
-    color:#111;
+.pie-pagina__info a:hover {
+    color: #c3a482;
 }
 
-.pie-pagina__bottom{
-    max-width:1400px;
+/* =========================================
+   INSTAGRAM
+========================================= */
 
-    margin:5rem auto 0;
+.pie-pagina__instagram {
+    display: inline-flex;
+    align-items: center;
 
-    padding-top:2rem;
-
-    border-top:1px solid #c3a482;
-
-    color:#888;
-
-    font-size:.85rem;
+    gap: .85rem;
 }
 
-@media (max-width:992px){
+.pie-pagina__instagram svg {
+    display: block;
 
-    .pie-pagina{
-        padding:6rem 3rem 2rem;
-    }
+    width: 20px;
+    height: 20px;
 
-    .pie-pagina__contenedor{
-        grid-template-columns:1fr;
-        gap:3rem;
-    }
+    flex-shrink: 0;
 
+    color: #ffffff;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
 }
 
-@media (max-width:768px){
+.pie-pagina__instagram:hover svg {
+    color: #c3a482;
+    transform: translateY(-2px);
+}
 
-    .pie-pagina{
-        padding:5rem 2rem 2rem;
+/* =========================================
+   DERECHOS RESERVADOS
+========================================= */
+
+.pie-pagina__bottom {
+    max-width: 1400px;
+
+    margin: 5rem auto 0;
+    padding-top: 2rem;
+
+    border-top: 1px solid #c3a482;
+
+    color: #a6a6a6;
+
+    font-size: .8rem;
+    font-weight: 400;
+    letter-spacing: .01em;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .pie-pagina {
+        padding: 5rem 3rem 2rem;
     }
 
+    .pie-pagina__contenedor {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .pie-pagina__marca {
+        grid-column: 1 / -1;
+    }
+
+    .pie-pagina__bottom {
+        margin-top: 4rem;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .pie-pagina {
+        padding: 4.5rem 2rem 2rem;
+    }
+
+    .pie-pagina__contenedor {
+        grid-template-columns: 1fr;
+        gap: 2.8rem;
+    }
+
+    .pie-pagina__marca {
+        grid-column: auto;
+    }
+
+    .pie-pagina__logo-enlace img {
+        height: 48px;
+    }
+
+    .pie-pagina__marca p {
+        margin-top: 1.4rem;
+
+        font-size: .9rem;
+    }
+
+    .pie-pagina__enlaces,
+    .pie-pagina__info {
+        gap: 1rem;
+    }
+
+    .pie-pagina__bottom {
+        margin-top: 3.5rem;
+        padding-top: 1.5rem;
+
+        font-size: .75rem;
+        line-height: 1.7;
+    }
+}
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .pie-pagina {
+        padding: 4rem 1.5rem 1.8rem;
+    }
+
+    .pie-pagina__contenedor {
+        gap: 2.5rem;
+    }
+
+    .pie-pagina__logo-enlace img {
+        height: 44px;
+    }
+}
+
+/* =========================================
+   MOVIMIENTO REDUCIDO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pie-pagina__logo-enlace img,
+    .pie-pagina__enlaces a,
+    .pie-pagina__info a,
+    .pie-pagina__instagram svg {
+        transition: none;
+    }
 }

@@ -1,72 +1,217 @@
-export function separador02() {
-    return `
-        <section class="separador02">
 
-            <div class="separador02__contenedor">
+export const separador02 = () => {
+  return `
 
-                <div class="separador02__encabezado">
+    <section
+      class="separador02"
+      id="como-podemos-ayudarte"
+    >
 
-                    <h2>
-                        Cada proyecto comienza
-                        en<br> un punto distinto.
-                    </h2>
+      <div class="separador02__contenedor">
 
-                </div>
+        <div class="separador02__encabezado">
 
-                <div class="separador02__grid">
+          <h2>
+            ¿Cómo podemos ayudarte?
+          </h2>
 
-                    <div class="separador02__item">
+          <p>
+            Cada proyecto comienza con un objetivo.
+            Identificamos oportunidades y desarrollamos
+            estrategias de acuerdo con tus necesidades.
+          </p>
 
-                        <h3>
-                            ¿Quieres comprar?
-                        </h3>
+        </div>
 
-                        <p>
-                           Encontramos propiedades alineadas con tus objetivos, con el respaldo de especialistas que te ayudan a evaluar su potencial y tomar decisiones informadas.
-                        </p>
+        <!-- =========================================
+             COMPUTADORA - CUATRO COLUMNAS
+        ========================================= -->
 
-                    </div>
+        <div class="separador02__grid">
 
-                    <div class="separador02__item">
+          <div class="separador02__item">
 
-                        <h3>
-                            ¿Quieres invertir?
-                        </h3>
+            <h3>Comprar</h3>
 
-                        <p>
-                            Nuestro equipo analiza oportunidades desde una perspectiva comercial, técnica y patrimonial para identificar alternativas con potencial de crecimiento.
-                        </p>
+            <p>
+              Te ayudamos a identificar propiedades
+              que respondan a tus necesidades,
+              considerando su ubicación, potencial
+              y valor a largo plazo.
+            </p>
 
-                    </div>
+            <a class="separador02__enlace" href="#contacto">
+              Hablemos de tu proyecto
+              <span aria-hidden="true">↗</span>
+            </a>
 
-                    <div class="separador02__item">
+          </div>
 
-                        <h3>
-                            ¿Quieres desarrollar?
-                        </h3>
+          <div class="separador02__item">
 
-                        <p>
-                            Nuestros arquitectos e ingenieros te asesoran para evaluar terrenos, explorar posibilidades de diseño y analizar la viabilidad de tu proyecto.
-                        </p>
+            <h3>Invertir</h3>
 
-                    </div>
+            <p>
+              Analizamos oportunidades inmobiliarias
+              considerando su viabilidad, potencial
+              de crecimiento y objetivos de inversión.
+            </p>
 
-                    <div class="separador02__item">
+            <a class="separador02__enlace" href="#contacto">
+              Hablemos de tu proyecto
+              <span aria-hidden="true">↗</span>
+            </a>
 
-                        <h3>
-                            ¿Ya cuentas con una propiedad?
-                        </h3>
+          </div>
 
-                        <p>
-                            Te ayudamos a descubrir su potencial mediante asesoría arquitectónica, evaluación técnica y estrategias de venta, inversión o desarrollo.
-                        </p>
+          <div class="separador02__item">
 
-                    </div>
+            <h3>Desarrollar</h3>
 
-                </div>
+            <p>
+              Evaluamos terrenos y proyectos para
+              identificar su mejor aprovechamiento,
+              integrando perspectivas comerciales,
+              arquitectónicas y técnicas.
+            </p>
+
+            <a class="separador02__enlace" href="#contacto">
+              Hablemos de tu proyecto
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </div>
+
+          <div class="separador02__item">
+
+            <h3>Tengo una propiedad</h3>
+
+            <p>
+              Estudiamos el potencial de tu inmueble
+              para identificar alternativas de
+              comercialización, inversión
+              o desarrollo.
+            </p>
+
+            <a class="separador02__enlace" href="#contacto">
+              Hablemos de tu proyecto
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- =========================================
+             MOBILE - ACORDEON
+        ========================================= -->
+
+        <div class="separador02__acordeon">
+
+          <details class="separador02__detalle">
+
+            <summary class="separador02__pregunta">
+              Comprar
+              <span class="separador02__simbolo" aria-hidden="true"></span>
+            </summary>
+
+            <div class="separador02__respuesta">
+
+              <p>
+                Te ayudamos a identificar propiedades
+                que respondan a tus necesidades,
+                considerando su ubicación, potencial
+                y valor a largo plazo.
+              </p>
+
+              <a class="separador02__enlace" href="#contacto">
+                Hablemos de tu proyecto
+                <span aria-hidden="true">↗</span>
+              </a>
 
             </div>
 
-        </section>
-    `
+          </details>
+
+          <details class="separador02__detalle">
+
+            <summary class="separador02__pregunta">
+              Invertir
+              <span class="separador02__simbolo" aria-hidden="true"></span>
+            </summary>
+
+            <div class="separador02__respuesta">
+
+              <p>
+                Analizamos oportunidades inmobiliarias
+                considerando su viabilidad, potencial
+                de crecimiento y objetivos de inversión.
+              </p>
+
+              <a class="separador02__enlace" href="#contacto">
+                Hablemos de tu proyecto
+                <span aria-hidden="true">↗</span>
+              </a>
+
+            </div>
+
+          </details>
+
+          <details class="separador02__detalle">
+
+            <summary class="separador02__pregunta">
+              Desarrollar
+              <span class="separador02__simbolo" aria-hidden="true"></span>
+            </summary>
+
+            <div class="separador02__respuesta">
+
+              <p>
+                Evaluamos terrenos y proyectos para
+                identificar su mejor aprovechamiento,
+                integrando perspectivas comerciales,
+                arquitectónicas y técnicas.
+              </p>
+
+              <a class="separador02__enlace" href="#contacto">
+                Hablemos de tu proyecto
+                <span aria-hidden="true">↗</span>
+              </a>
+
+            </div>
+
+          </details>
+
+          <details class="separador02__detalle">
+
+            <summary class="separador02__pregunta">
+              Tengo una propiedad
+              <span class="separador02__simbolo" aria-hidden="true"></span>
+            </summary>
+
+            <div class="separador02__respuesta">
+
+              <p>
+                Estudiamos el potencial de tu inmueble
+                para identificar alternativas de
+                comercialización, inversión
+                o desarrollo.
+              </p>
+
+              <a class="separador02__enlace" href="#contacto">
+                Hablemos de tu proyecto
+                <span aria-hidden="true">↗</span>
+              </a>
+
+            </div>
+
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  `
 }
