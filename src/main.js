@@ -1,5 +1,17 @@
 
 /* =========================================
+   EMAILJS
+========================================= */
+
+import emailjs from '@emailjs/browser'
+
+const EMAILJS_SERVICE_ID = 'service_ll3aahc'
+
+const EMAILJS_TEMPLATE_ID = 'template_z3a2crc'
+
+const EMAILJS_PUBLIC_KEY = 'ISyZGkGWgMwXHNSBy'
+
+/* =========================================
    ESTILOS
 ========================================= */
 
@@ -207,8 +219,6 @@ if (hamburguesa && menu) {
 
 document.addEventListener('click', (e) => {
 
-  /* SELECCIONAR UNA OPCION */
-
   const opcion = e.target.closest('.dropdown__item')
 
   if (opcion) {
@@ -245,8 +255,6 @@ document.addEventListener('click', (e) => {
 
     return
   }
-
-  /* ABRIR O CERRAR DROPDOWN */
 
   const encabezadoDropdown =
     e.target.closest('.dropdown__header')
@@ -287,8 +295,6 @@ document.addEventListener('click', (e) => {
 
     return
   }
-
-  /* CERRAR AL HACER CLIC FUERA */
 
   if (!e.target.closest('.dropdown')) {
 
@@ -337,7 +343,7 @@ document.addEventListener('keydown', (e) => {
 })
 
 /* =========================================
-   FORMULARIO PENDIENTE DE CONEXION
+   ENVIO DEL FORMULARIO CON EMAILJS
 ========================================= */
 
 const formularioTegra =
@@ -345,17 +351,152 @@ const formularioTegra =
 
 if (formularioTegra) {
 
-  formularioTegra.addEventListener('submit', (e) => {
+  const botonEnviar =
+    formularioTegra.querySelector('.que-buscas__submit')
+
+  const estado =
+    document.getElementById('estado-formulario')
+
+  let enviando = false
+
+  formularioTegra.addEventListener('submit', async (e) => {
 
     e.preventDefault()
 
-    const estado =
-      document.getElementById('estado-formulario')
+    if (enviando) return
+
+    /* VERIFICAR CONFIGURACION */
+
+    if (
+      EMAILJS_TEMPLATE_ID === 'TU_TEMPLATE_ID' ||
+      EMAILJS_PUBLIC_KEY === 'TU_PUBLIC_KEY'
+    ) {
+
+      if (estado) {
+        estado.textContent =
+          'El formulario aún está en configuración. Intenta más tarde.'
+      }
+
+      return
+    }
+
+    /* VALIDACION DEL FORMULARIO */
+
+    if (!formularioTegra.reportValidity()) return
+
+    const datos = new FormData(formularioTegra)
+
+    const parametros = {
+      objetivo: String(datos.get('objetivo') || '').trim(),
+      ubicacion: String(datos.get('ubicacion') || '').trim(),
+      mensaje: String(datos.get('mensaje') || '').trim(),
+      nombre: String(datos.get('nombre') || '').trim(),
+      telefono: String(datos.get('telefono') || '').trim(),
+      email: String(datos.get('email') || '').trim()
+    }
+
+    if (
+      !parametros.objetivo ||
+      !parametros.ubicacion ||
+      !parametros.mensaje ||
+      !parametros.nombre ||
+      !parametros.email
+    ) {
+
+      if (estado) {
+        estado.textContent =
+          'Completa los campos obligatorios.'
+      }
+
+      return
+    }
+
+    /* BLOQUEAR ENVIOS DUPLICADOS */
+
+    enviando = true
+
+    botonEnviar.disabled = true
+    botonEnviar.textContent = 'Enviando...'
 
     if (estado) {
+      estado.textContent = ''
+    }
 
-      estado.textContent =
-        'El formulario todavía no está habilitado para enviar solicitudes.'
+    try {
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        parametros,
+        {
+          publicKey: EMAILJS_PUBLIC_KEY
+        }
+      )
+
+      /* CONFIRMACION EN PANTALLA */
+
+      if (estado) {
+
+        estado.textContent =
+          'Hemos recibido tu solicitud. Nos pondremos en contacto contigo a la brevedad.'
+
+      }
+
+      formularioTegra.reset()
+
+      /* RESTABLECER EL OBJETIVO */
+
+      const dropdown =
+        formularioTegra.querySelector('.dropdown')
+
+      if (dropdown) {
+
+        const encabezado =
+          dropdown.querySelector('.dropdown__header')
+
+        const campoOculto =
+          dropdown.querySelector('input[name="objetivo"]')
+
+        if (encabezado) {
+
+          encabezado.textContent = 'Invertir'
+
+          const simbolo = document.createElement('span')
+
+          simbolo.textContent = '+'
+          simbolo.setAttribute('aria-hidden', 'true')
+
+          encabezado.appendChild(simbolo)
+
+          encabezado.setAttribute('aria-expanded', 'false')
+
+        }
+
+        if (campoOculto) {
+          campoOculto.value = 'Invertir'
+        }
+
+        dropdown.classList.remove('activo')
+
+      }
+
+    } catch (error) {
+
+      console.error('Error al enviar formulario TEGRA:', error)
+
+      if (estado) {
+
+        estado.textContent =
+          'No pudimos enviar tu solicitud. Intenta nuevamente o escríbenos a admin@grupovaley.com.'
+
+      }
+
+    } finally {
+
+      enviando = false
+
+      botonEnviar.disabled = false
+      botonEnviar.textContent = 'Enviar información'
 
     }
 

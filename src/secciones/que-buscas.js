@@ -37,6 +37,8 @@ export const queBuscas = () => {
           id="formulario-tegra"
         >
 
+          <!-- OBJETIVO -->
+
           <div class="dropdown">
 
             <label id="objetivo-label">
@@ -81,6 +83,8 @@ export const queBuscas = () => {
 
           </div>
 
+          <!-- UBICACION -->
+
           <div class="campo">
 
             <label for="ubicacion-tegra">
@@ -92,10 +96,13 @@ export const queBuscas = () => {
               name="ubicacion"
               type="text"
               placeholder="Ej. Hermosillo, Sonora"
+              maxlength="150"
               required
             >
 
           </div>
+
+          <!-- DESCRIPCION -->
 
           <div class="campo">
 
@@ -107,11 +114,14 @@ export const queBuscas = () => {
               id="mensaje-tegra"
               name="mensaje"
               rows="3"
+              maxlength="2000"
               placeholder="Describe brevemente qué buscas..."
               required
             ></textarea>
 
           </div>
+
+          <!-- NOMBRE Y TELEFONO -->
 
           <div class="que-buscas__datos">
 
@@ -126,6 +136,7 @@ export const queBuscas = () => {
                 name="nombre"
                 type="text"
                 autocomplete="name"
+                maxlength="100"
                 placeholder="Nombre completo"
                 required
               >
@@ -134,21 +145,44 @@ export const queBuscas = () => {
 
             <div class="campo">
 
-              <label for="contacto-tegra">
-                Teléfono / Correo electrónico
+              <label for="telefono-tegra">
+                Teléfono / WhatsApp
               </label>
 
               <input
-                id="contacto-tegra"
-                name="contacto"
-                type="text"
-                placeholder="Tu número o correo"
-                required
+                id="telefono-tegra"
+                name="telefono"
+                type="tel"
+                autocomplete="tel"
+                maxlength="25"
+                placeholder="Número de contacto"
               >
 
             </div>
 
           </div>
+
+          <!-- CORREO ELECTRONICO -->
+
+          <div class="campo">
+
+            <label for="email-tegra">
+              Correo electrónico
+            </label>
+
+            <input
+              id="email-tegra"
+              name="email"
+              type="email"
+              autocomplete="email"
+              maxlength="254"
+              placeholder="tu@correo.com"
+              required
+            >
+
+          </div>
+
+          <!-- ENVIO -->
 
           <button
             class="que-buscas__submit"
@@ -161,6 +195,7 @@ export const queBuscas = () => {
             class="que-buscas__estado"
             id="estado-formulario"
             aria-live="polite"
+            role="status"
           ></p>
 
         </form>
