@@ -1,5 +1,5 @@
 
-import nombreTegra from '../assets/logos/nombretegra.PNG'
+import nombreTegra from '../assets/logos/nombretegra.png'
 
 export const portafolioInstitucional = () => {
   return `
